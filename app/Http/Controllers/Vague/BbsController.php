@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Vague;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-// model 後で追加
+use App\Bbs;
+use App\History;
+use Carbon\Carbon;
 
 class BbsController extends Controller
 {
@@ -35,7 +37,7 @@ class BbsController extends Controller
         } else {
             $posts = Bbs::all();
         }
-        return view('vague.bbs.index', ['poste' => $posts, 'cond_title' => $cond_title]);
+        return view('vague.bbs.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
     public function edit(Request $request)
@@ -58,7 +60,7 @@ class BbsController extends Controller
         
         $history = new History;
         $history->bbs_id = $bbs->id;
-        $history->edited_at = Carbon::noe();
+        $history->edited_at = Carbon::now();
         $history->save();
         
         return redirect('/');

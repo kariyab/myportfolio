@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBbsTable extends Migration
+class CreateHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateBbsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bbs', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('body');
+        Schema::create('histories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('bbs_id');
+            $table->string('edited_at');
             
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateBbsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bbs');
+        Schema::dropIfExists('histories');
     }
 }

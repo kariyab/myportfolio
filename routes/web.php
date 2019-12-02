@@ -11,14 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Vague\BbsController@index');
 
 Route::group(['prefix' => 'bbs',], function() {
     Route::get('create', 'Vague\BbsController@add');
     Route::post('create', 'Vague\BbsController@create');
-    Route::get('', 'Vague\BbsController@index');
     
     Route::get('edit', 'Vague\BbsController@edit');
     Route::post('edit', 'Vague\BbsController@update');

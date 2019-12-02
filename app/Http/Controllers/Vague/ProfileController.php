@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Vague;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-//model 後で追加
+use App\Profile;
+use App\Profile_history;
+use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
