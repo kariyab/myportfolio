@@ -31,13 +31,13 @@ class BbsController extends Controller
     
     public function index(Request $request)
     {
-        $cond_title = $request->cond_title;
-        if ($cond_title != '') {
-            $posts = Bbs::where('title', 'LIKE', "%{$cond_title}%")->get();
+        $cond_lang = $request->cond_lang;
+        if ($cond_lang != '') {
+            $posts = Bbs::where('lang', 'LIKE', "%{$cond_lang}%")->get();
         } else {
             $posts = Bbs::all();
         }
-        return view('vague.bbs.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+        return view('vague.bbs.index', ['posts' => $posts, 'cond_lang' => $cond_lang]);
     }
     
     public function edit(Request $request)

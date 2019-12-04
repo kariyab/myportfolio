@@ -150,7 +150,7 @@ return [
         'password' => 'パスワード',
         'password_confirmation' => 'パスワード（確認）',
         'name' => 'ユーザー名',
-        
+        'lang' => '言語',
         'title' => 'タイトル',
         'body' => '本文'
         

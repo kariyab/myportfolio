@@ -8,7 +8,8 @@ class Bbs extends Model
 {
     protected $guarded = array('id');
     public static $rules = array(
-        "title" => "required",
+        "name" => "required",
+        "lang" => "required",
         "body" => "required",
     );
     

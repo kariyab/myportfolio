@@ -15,7 +15,8 @@ class CreateBbsTable extends Migration
     {
         Schema::create('bbs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
+            $table->string('name');
+            $table->string('lang');
             $table->string('body');
             
             $table->timestamps();

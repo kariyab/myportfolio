@@ -15,9 +15,15 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">タイトル</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ $bbs_form->title }}">
+                        <label class="col-md-2" for="name">名前</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="name" value="{{ $bbs_form->name }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2" for="lang">言語</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="lang" value="{{ $bbs_form->lang }}">
                         </div>
                     </div>
                     <div class="form-group row">

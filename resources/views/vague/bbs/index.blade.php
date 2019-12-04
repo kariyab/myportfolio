@@ -23,9 +23,9 @@
             <div class="col-md-8">
                 <form action="{{ action('Vague\BbsController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
+                        <label class="col-md-2">言語</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
+                            <input type="text" class="form-control" name="cond_lang" value="{{ $cond_lang }}">
                         </div>
                         <div class="col-md-2">
                             {{ csrf_field() }}
@@ -41,15 +41,17 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="20%">タイトル</th>
-                                <th width="50%">本文</th>
+                                <th width="15%">投稿者</th>
+                                <th width="10%">言語</th>
+                                <th width="70%">本文</th>
                                 <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($posts as $bbs)
                                 <tr>
-                                    <td>{{ \Str::limit($bbs->title, 100) }}</td>
+                                    <td>{{ \Str::limit($bbs->name, 100) }}</td>
+                                    <td>{{ \Str::limit($bbs->lang, 100) }}</td>
                                     <td>{{ \Str::limit($bbs->body, 250) }}</td>
                                     <td>
                                         <div>

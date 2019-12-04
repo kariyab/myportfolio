@@ -17,9 +17,15 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="title">タイトル</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                        <label class="col-md-2" for="name">名前</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                    <label class="col-md-2" for="name">言語</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="lang" value="{{ old('lang') }}">
                         </div>
                     </div>
                     <div class="form-group row">

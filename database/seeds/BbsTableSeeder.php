@@ -13,31 +13,36 @@ class BbsTableSeeder extends Seeder
     {
         \App\Bbs::create([
             'id' => '1',
-            'title' => 'テスト1',
+            'name' => '一助',
+            'lang' => 'php',
             'body' => '111',
         ]);
 
         \App\Bbs::create([
             'id' => '2',
-            'title' => 'テスト2',
+            'name' => '二太郎',
+            'lang' => 'ruby',
             'body' => '222',
         ]);
         
         \App\Bbs::create([
             'id' => '3',
-            'title' => 'テスト3',
+            'name' => '三太',
+            'lang' => 'PHP',
             'body' => '333',
         ]);
         
         \App\Bbs::create([
             'id' => '4',
-            'title' => 'テスト4',
+            'name' => '四郎',
+            'lang' => 'PHP',
             'body' => '444',
         ]);
         
         \App\Bbs::create([
             'id' => '5',
-            'title' => 'テスト5',
+            'name' => '五助',
+            'lang' => 'Ruby',
             'body' => '555',
         ]);
     }
