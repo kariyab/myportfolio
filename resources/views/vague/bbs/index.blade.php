@@ -55,11 +55,13 @@
                                     <td>{{ \Str::limit($bbs->body, 250) }}</td>
                                     <td>
                                         <div>
-                                            <a href="{{ action('Vague\BbsController@edit', ['id' => $bbs->id]) }}">編集</a>
+                                            <a href="{{ action('Vague\BbsController@edit', ['id' => $bbs->id]) }}" class="btn btn-primary">編集</a>
                                         </div>
-                                        <div>
-                                            <a href="{{ action('Vague\BbsController@delete', ['id' => $bbs->id]) }}">削除</a>
-                                        </div>
+                                        <form action="{{ action('Vague\BbsController@delete', $bbs->id) }}" id="form_{{ $bbs->id }}" method="post">
+                                            {{ csrf_field() }}
+                                            {{ method_field('delete') }}
+                                            <a href="#" data-id="{{ $bbs->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
@@ -68,5 +70,13 @@
                 </div>
             </div>
         </div>
+    <script>
+        function deletePost(e) {
+            'use strict';
+            if (confirm('本当に削除してもよろしいですか?')) {
+                document.getElementById('form_' + e.dataset.id).submit();
+            }
+        }
+    </script>
     </div>
 @endsection

@@ -20,6 +20,7 @@ Route::group(['prefix' => 'bbs',], function() {
     Route::get('edit', 'Vague\BbsController@edit');
     Route::post('edit', 'Vague\BbsController@update');
     Route::get('delete', 'Vague\BbsController@delete');
+    Route::delete('delete/{id}', 'Vague\BbsController@delete');
 });
 
 Route::group(['prefix' => 'user'], function() {
@@ -34,3 +35,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
