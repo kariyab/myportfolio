@@ -41,28 +41,30 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="15%">投稿者</th>
+                                <th width="13%">日時</th>
+                                <th width="10%">投稿者</th>
                                 <th width="10%">言語</th>
-                                <th width="70%">本文</th>
+                                <th width="50%">本文</th>
                                 <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $bbs)
+                            @foreach($posts as $post)
                                 <tr>
-                                    <td>{{ \Str::limit($bbs->name, 100) }}</td>
-                                    <td>{{ \Str::limit($bbs->lang, 100) }}</td>
-                                    <td>{{ \Str::limit($bbs->body, 250) }}</td>
-                                    <td>
-                                        <div>
-                                            <a href="{{ action('Vague\BbsController@edit', ['id' => $bbs->id]) }}" class="btn btn-primary">編集</a>
-                                        </div>
-                                        <form action="{{ action('Vague\BbsController@delete', $bbs->id) }}" id="form_{{ $bbs->id }}" method="post">
+                                    <td><div class="date">
+                                        {{ $post->updated_at->format('Y年m月d日 H時i分s秒') }}
+                                    </td></div>
+                                    <td>{{ \Str::limit($post->name, 100) }}</td>
+                                    <td>{{ \Str::limit($post->lang, 100) }}</td>
+                                    <td>{{ \Str::limit($post->body, 250) }}</td>
+                                    <td><div>
+                                            <a href="{{ action('Vague\BbsController@edit', ['id' => $post->id]) }}" class="btn btn-primary">編集</a>
+                                    </td></div>
+                                    <td><form action="{{ action('Vague\BbsController@delete', $post->id) }}" id="form_{{ $post->id }}" method="post">
                                             {{ csrf_field() }}
                                             {{ method_field('delete') }}
-                                            <a href="#" data-id="{{ $bbs->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a>
-                                        </form>
-                                    </td>
+                                            <a href="#" data-id="{{ $post->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a>
+                                    </td></form>
                                 </tr>
                             @endforeach
                         </tbody>

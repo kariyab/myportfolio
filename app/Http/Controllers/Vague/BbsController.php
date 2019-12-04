@@ -35,7 +35,7 @@ class BbsController extends Controller
         if ($cond_lang != '') {
             $posts = Bbs::where('lang', 'LIKE', "%{$cond_lang}%")->get();
         } else {
-            $posts = Bbs::all();
+            $posts = Bbs::all()->sortByDesc('updated_at');
         }
         return view('vague.bbs.index', ['posts' => $posts, 'cond_lang' => $cond_lang]);
     }
