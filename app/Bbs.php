@@ -18,4 +18,9 @@ class Bbs extends Model
     {
         return $this->hasMany('App\History');
     }
+    
+    public function answers()
+    {
+        return $this->hasMany('App\Answer');
+    }
 }

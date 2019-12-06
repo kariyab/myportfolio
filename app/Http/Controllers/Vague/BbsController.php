@@ -73,4 +73,11 @@ class BbsController extends Controller
         
         return redirect('/');
     }
+    
+        public function show($bbs_id)
+    {
+        $post = Bbs::findOrFail($bbs_id);
+        
+        return view('vague.answer.show', ['post' => $post,]);
+    }
 }

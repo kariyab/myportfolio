@@ -44,8 +44,8 @@
                                 <th width="13%">日時</th>
                                 <th width="10%">投稿者</th>
                                 <th width="10%">言語</th>
-                                <th width="50%">本文</th>
-                                <th width="10%">操作</th>
+                                <th width="60%">本文</th>
+                                <th width="5%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,9 +54,17 @@
                                     <td><div class="date">
                                         {{ $post->updated_at->format('Y年m月d日 H時i分s秒') }}
                                     </td></div>
-                                    <td>{{ \Str::limit($post->name, 100) }}</td>
+                                    <td>{{ \Str::limit($post->users_id, 100) }}</td>
                                     <td>{{ \Str::limit($post->lang, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
+                                    @if ($post->answers->count())
+                                        <span class="badge badge-primary">
+                                            コメント {{ $post->answers->count() }}件
+                                        </span>
+                                    @endif
+                                    <td><div class="col-md-4">
+                                            <a href="{{ action('Vague\BbsController@show', ['id' => $post->id]) }}" class="btn btn-primary">詳細</a>
+                                    </td></div>
                                     <td><div>
                                             <a href="{{ action('Vague\BbsController@edit', ['id' => $post->id]) }}" class="btn btn-primary">編集</a>
                                     </td></div>

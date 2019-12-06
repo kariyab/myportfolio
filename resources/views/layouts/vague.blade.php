@@ -56,6 +56,7 @@
                                 </div>
                             </li>
                             @endguest
+                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('messages.Register') }}</a></li>
                         </ul>
                     </div>
                 </div>
