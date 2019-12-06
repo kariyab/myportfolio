@@ -18,7 +18,8 @@ class CreateBbsTable extends Migration
             $table->string('name');
             $table->string('lang');
             $table->string('body');
-            
+            $table->unsignedInteger('answer_count');
+                
             $table->timestamps();
         });
     }

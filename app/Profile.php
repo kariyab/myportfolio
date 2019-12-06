@@ -15,9 +15,12 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password', 'role'
-    ];
+    protected $guarded = array('id', 'role');
+    
+    public static $rules = array(
+        "name" => "required",
+        "introduction" => "required",
+    );
 
     /**
      * The attributes that should be hidden for arrays.
@@ -40,5 +43,10 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));
+    }
+    
+    public function profile_histories()
+    {
+      return $this->hasMany('App\Profile_history');
     }
 }

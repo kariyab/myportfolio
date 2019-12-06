@@ -20,7 +20,17 @@ Route::group(['prefix' => 'bbs',], function() {
     Route::get('edit', 'Vague\BbsController@edit');
     Route::post('edit', 'Vague\BbsController@update');
     Route::get('delete', 'Vague\BbsController@delete');
-    Route::delete('delete/{id}', 'Vague\BbsController@delete');
+
+});
+
+Route::group(['prefix' => 'answer',], function() {
+    Route::get('create', 'Vague\AnswerController@add');
+    Route::post('create', 'Vague\AnswerController@create');
+    
+    Route::get('edit', 'Vague\AnswerController@edit');
+    Route::post('edit', 'Vague\AnswerController@update');
+    Route::get('delete', 'Vague\AnswerController@delete');
+
 });
 
 Route::group(['prefix' => 'user'], function() {

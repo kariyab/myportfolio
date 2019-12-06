@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAnswersTable extends Migration
+class AddColumnRoleUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('answers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('answer');
-            $table->unsignedInteger('bbs_id');
-            
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+          $table->tinyInteger('role')->default(0)->after('password')->index('index_role')->comment('ロール');
         });
     }
 
@@ -30,6 +25,8 @@ class CreateAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('answers');
+        Schema::table('users', function (Blueprint $table) {
+          $table->dropColumn('role');
+        });
     }
 }
