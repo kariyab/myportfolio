@@ -42,7 +42,7 @@ class AnswerController extends Controller
         
         return redirect()->route('vague.answer.show', ['post' => $post,]);
     }
-    
+
     public function index(Request $request)
     {
         $cond_answer = $request->cond_answer;

@@ -54,7 +54,7 @@
                                     <td><div class="date">
                                         {{ $post->updated_at->format('Y年m月d日 H時i分s秒') }}
                                     </td></div>
-                                    <td>{{ \Str::limit($post->users_id, 100) }}</td>
+                                    <td>{{ \Str::limit($post->name, 100) }}</td>
                                     <td>{{ \Str::limit($post->lang, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
                                     @if ($post->answers->count())
