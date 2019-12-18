@@ -44,7 +44,8 @@
                                 <th width="13%">日時</th>
                                 <th width="10%">投稿者</th>
                                 <th width="10%">言語</th>
-                                <th width="60%">本文</th>
+                                <th width="40%">本文</th>
+                                <th width="20%">回答数</th>
                                 <th width="5%">操作</th>
                             </tr>
                         </thead>
@@ -57,6 +58,13 @@
                                     <td>{{ \Str::limit($post->name, 100) }}</td>
                                     <td>{{ \Str::limit($post->lang, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
+                                    <td>
+                                        @if ($post->answers->count())
+                                        <span class="badge badge-primary">
+                                            コメント {{ $post->answers->count() }}件
+                                        </span>
+                                    @endif
+                                    </td>
 
                                     <td><div class="col-md-4">
                                             <a href="{{ action('Vague\AnswerController@create', ['id' => $post->id]) }}" class="btn btn-primary">詳細</a>
