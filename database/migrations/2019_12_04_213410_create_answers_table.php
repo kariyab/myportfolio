@@ -17,11 +17,7 @@ class CreateAnswersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('answer');
-<<<<<<< HEAD
             $table->unsignedBigInteger('bbs_id');
-=======
-            $table->unsignedInteger('bbs_id');
->>>>>>> f0c6694558c8956c26b42b0010b4d3c83d5c6a95
             
             $table->timestamps();
             

@@ -68,16 +68,11 @@ class BbsController extends Controller
     
     public function delete(Request $request)
     {
-        $bbs = Bbs::find($request->id);
+        $form = $request->all();
+        $bbs = Bbs::find($form['deleteId']);
         $bbs->delete();
         
         return redirect('/');
     }
     
-        public function show($bbs_id)
-    {
-        $post = Bbs::findOrFail($bbs_id);
-        
-        return view('vague.answer.show', ['post' => $post,]);
-    }
 }

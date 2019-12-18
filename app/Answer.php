@@ -18,7 +18,7 @@ class Answer extends Model
         return $this->hasMany('App\Answer_history');
     }
     
-    public function post()
+    public function bbs()
     {
         return $this->belongsTo('App\Bbs');
     }

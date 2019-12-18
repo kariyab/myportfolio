@@ -32,16 +32,6 @@ class AnswerController extends Controller
         
         return redirect('/');
     }
-    
-    public function store(Request $request)
-    {
-        $this->validate($request, Answer::$rules);
-        
-        $post = Post::findOrFail($params['bbs_id']);
-        $post->answers()->create($params);
-        
-        return redirect()->route('vague.answer.show', ['post' => $post,]);
-    }
 
     public function index(Request $request)
     {

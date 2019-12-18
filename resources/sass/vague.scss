@@ -38,3 +38,18 @@ body {
 .login-body {
   background-color: rgba(0, 0, 0, 0.25);
 }
+
+.post {
+  .date {
+    font-size: 1.0em;
+  }
+  .name {
+    font-size: 1.2em;
+  }
+  .lang {
+    font-size: 1.2em;
+  }
+  .body {
+    font-size: 1.5em;
+  }
+}
