@@ -17,7 +17,7 @@ class AnswerController extends Controller
     {
         $bbs = Bbs::find($request->id);
         
-        return view('vague.answer.create', ['bbs_form' => $bbs]);
+        return view('vague.answer.create', ['bbs' => $bbs]);
     }
     
     public function create(Request $request)

@@ -14,7 +14,7 @@
 Route::get('/', 'Vague\BbsController@index');
 
 Route::group(['prefix' => 'bbs',], function() {
-    Route::get('create', 'Vague\BbsController@add');
+    Route::get('create', 'Vague\BbsController@add')->middleware('auth');
     Route::post('create', 'Vague\BbsController@create');
     
     Route::get('edit', 'Vague\BbsController@edit');
