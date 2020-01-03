@@ -1,0 +1,82 @@
+body {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #F5F5F5;
+    color: #000;
+}
+
+.navbar-laravel {
+    background-color: #00F;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+    color: #fff !important;
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+.table-dark {
+    color: #fff;
+}
+
+.list-group-item {
+    border-color: #fff;
+    background-color: #0FF;
+}
+
+.login-box {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.login-header {
+    background-color: rgba(0, 0, 0, 0.25)
+}
+
+.login-body {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.post {
+    .name {
+        font-size: 1.3em;
+    }
+    .date {
+        font-size: 1.2em;
+    }
+    .lang {
+        font-size: 1.3em;
+    }
+    .body {
+        font-size: 1.5em;
+    }
+}
+
+.comment {
+    .answer:after {
+        clear: both;
+        display: block;
+        content: " ";
+    }
+}
+
+.comment {
+    .answer li {
+        float: left;
+        padding: 0 30px;
+        text-align: center;
+        list-style-type: none;
+        text-decoration: none;
+    }
+    .answer-name {
+        font-size: 1.3em;
+    }
+    .answer-date {
+        font-size: 1.2em;
+    }
+    .answer-body {
+        font-size: 1.5em;
+    }
+}

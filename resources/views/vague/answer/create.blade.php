@@ -1,4 +1,4 @@
-@extends('layouts.vague')
+@extends('layouts.answer')
 
 @section('title', '回答の新規作成')
 
@@ -7,16 +7,16 @@
         <div class="row">
             <div class="post col-md-8 mx-auto mt-3">
                 <div class="row">
-                    <div class="text col-md-6">
-                        <div class="date">
-                            {{ $bbs->updated_at->format('Y年m月d日 H時i分s秒') }}
-                        </div>
-                        <div class="name">
+                    <div class="question">
+                        <p class="name">名前
                             {{ \Str::limit($bbs->name, 100) }}
-                        </div>
-                        <div class="lang">
+                        </p>
+                        <p class="date">
+                            {{ $bbs->updated_at->format('Y年m月d日 H時i分s秒') }}
+                        </p>
+                        <p class="lang">
                             {{ \Str::limit($bbs->lang, 100) }}
-                        </div>
+                        </p>
                         <div class="body">
                             {{ \Str::limit($bbs->body, 250) }}
                         </div>
@@ -24,21 +24,6 @@
                 </div>
             </div>
         </div>
-        @forelse($bbs->answers as $answer)
-                    <div class="border-top p-4">
-                        <time class="text-secondary">
-                            {{ $answer->created_at->format('Y.m.d H:i') }}
-                        </time>
-                        <p class="mt-2">
-                            {!! nl2br(e($answer->name)) !!}
-                        </p>
-                        <p class="mt-2">
-                            {!! nl2br(e($answer->answer)) !!}
-                        </p>
-                    </div>
-                @empty
-                    <p>コメントはまだありません。</p>
-                @endforelse
         <hr color="#c0c0c0">
         <div class="row">
             <div class="col-md-8 mx-auto">
@@ -52,13 +37,13 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2" for="name">名前</label>
+                        <label class="col-md-3" for="name">名前</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2" for="answer">本文</label>
+                        <label class="col-md-3" for="answer">本文</label>
                         <div class="col-md-10">
                             <textarea class="form-control" name="answer" rows="10">{{ old('answer') }}</textarea>
                         </div>
@@ -68,6 +53,31 @@
                     <input type="submit" class="btn btn-primary" value="投稿">
                 </form>
             </div>
+        </div>
+        <hr color="#c0c0c0">
+        <div class="row">
+            <div class="col-md-8 mx-auto mt-3">
+                @forelse($bbs->answers as $answer)
+                    <div class="comment">
+                        <div class="row">
+                            <ul class="answer">
+                                <li><div class="answer-name">名前
+                                    {{ \Str::limit($answer->name, 50) }}
+                                </div></li>
+                                <li><div class="answer-date">
+                                    {{ $answer->created_at->format('Y.m.d H:i') }}
+                                </div></li>
+                            </ul>
+                            <div class="answer-body mt-8">
+                                {{ \Str::limit($answer->answer, 500) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @empty
+                <p>コメントはまだありません。</p>
+            @endforelse
         </div>
     </div>
 @endsection

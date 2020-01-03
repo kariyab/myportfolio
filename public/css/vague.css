@@ -39,16 +39,16 @@ body {
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.post .date {
-  font-size: 1em;
+.post .name {
+  font-size: 1.3em;
 }
 
-.post .name {
+.post .date {
   font-size: 1.2em;
 }
 
 .post .lang {
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 .post .body {

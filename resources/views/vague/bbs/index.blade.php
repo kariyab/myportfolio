@@ -1,13 +1,16 @@
 @extends('layouts.vague')
 
 @section('title')
-仮ページ
+vague【ヴェイグ】
 @endsection
 <header>
     <div class="container">
         <div class="header-title-area">
-            <h1 class="logo">制作中</h1>
-            <p class="text-sub">表示テスト中。</p>
+            <h1 class="logo">ヴェイグ</h1>
+            <p class="text-sub">
+                プログラミング初心者向けQ&A<br>
+                理解するためのきっかけを見つけよう。<br>
+            </p>
         </div>
     </div>
 </header>
@@ -41,12 +44,12 @@
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th width="13%">日時</th>
-                                <th width="10%">投稿者</th>
+                                <th width="15%">日時</th>
+                                <th width="15%">投稿者</th>
                                 <th width="10%">言語</th>
                                 <th width="40%">本文</th>
-                                <th width="20%">回答数</th>
-                                <th width="5%">操作</th>
+                                <th width="15%">回答数</th>
+                                <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
