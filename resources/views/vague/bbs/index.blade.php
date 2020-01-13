@@ -3,18 +3,15 @@
 @section('title')
 vague【ヴェイグ】
 @endsection
-<header>
-    <div class="container">
-        <div class="header-title-area">
-            <h1 class="logo">ヴェイグ</h1>
-            <p class="text-sub">
-                プログラミング初心者向けQ&A<br>
-                理解するためのきっかけを見つけよう。<br>
-            </p>
-        </div>
-    </div>
-</header>
+
 @section('content')
+<div class="title-area">
+    <h1 class="logo">ヴェイグ</h1>
+    <p class="text-sub">
+        プログラミング初心者向けQ&A<br>
+        理解するためのきっかけを見つけよう。<br>
+    </p>
+</div>
     <div class="container">
         <div class="row">
             <h2>質問一覧</h2>

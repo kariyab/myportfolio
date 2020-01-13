@@ -17,11 +17,14 @@ class CreateAnswersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('answer');
-            $table->unsignedBigInteger('bbs_id');
+            $table->unsignedbigInteger('bbs_id');
+            $table->bigInteger('user_id')->unsigned();
             
             $table->timestamps();
             
             $table->foreign('bbs_id')->references('id')->on('bbs');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

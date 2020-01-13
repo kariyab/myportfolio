@@ -16,6 +16,7 @@ class BbsTableSeeder extends Seeder
             'name' => '一助',
             'lang' => 'php',
             'body' => '111',
+            'user_id' => '1'
         ]);
 
         \App\Bbs::create([
@@ -23,6 +24,7 @@ class BbsTableSeeder extends Seeder
             'name' => '二太郎',
             'lang' => 'ruby',
             'body' => '222',
+            'user_id' => '1'
         ]);
         
         \App\Bbs::create([
@@ -30,6 +32,7 @@ class BbsTableSeeder extends Seeder
             'name' => '三太',
             'lang' => 'PHP',
             'body' => '333',
+            'user_id' => '1'
         ]);
         
         \App\Bbs::create([
@@ -37,6 +40,7 @@ class BbsTableSeeder extends Seeder
             'name' => '四郎',
             'lang' => 'PHP',
             'body' => '444',
+            'user_id' => '2'
         ]);
         
         \App\Bbs::create([
@@ -44,6 +48,7 @@ class BbsTableSeeder extends Seeder
             'name' => '五助',
             'lang' => 'Ruby',
             'body' => '555',
+            'user_id' => '2'
         ]);
     }
 }

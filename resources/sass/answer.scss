@@ -39,44 +39,11 @@ body {
     background-color: rgba(0, 0, 0, 0.25);
 }
 
-.post {
-    .name {
-        font-size: 1.3em;
-    }
-    .date {
-        font-size: 1.2em;
-    }
-    .lang {
-        font-size: 1.3em;
-    }
-    .body {
-        font-size: 1.5em;
-    }
+.card-header {
+    display: flex;
 }
 
-.comment {
-    .answer:after {
-        clear: both;
-        display: block;
-        content: " ";
-    }
-}
-
-.comment {
-    .answer li {
-        float: left;
-        padding: 0 30px;
-        text-align: center;
-        list-style-type: none;
-        text-decoration: none;
-    }
-    .answer-name {
-        font-size: 1.3em;
-    }
-    .answer-date {
-        font-size: 1.2em;
-    }
-    .answer-body {
-        font-size: 1.5em;
-    }
+.answer {
+    display: flex;
+    flex-direction: column;
 }

@@ -19,8 +19,11 @@ class CreateBbsTable extends Migration
             $table->string('lang');
             $table->string('body');
             $table->integer('answer_count')->default(0);
+            $table->bigInteger('user_id')->unsigned();
                 
             $table->timestamps();
+            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

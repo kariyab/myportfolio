@@ -34,6 +34,7 @@
                             <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
                         </div>
                     </div>
+                    <input id="user_id" name="user_id" type="hidden" value="{{ $user->id }}">
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="投稿">
                 </form>

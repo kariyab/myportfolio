@@ -10,14 +10,16 @@ use App\History;
 use App\Answer;
 use App\Answer_history;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class AnswerController extends Controller
 {
     public function add(Request $request)
     {
+        $user = Auth::user();
         $bbs = Bbs::find($request->id);
         
-        return view('vague.answer.create', ['bbs' => $bbs]);
+        return view('vague.answer.create', ['bbs' => $bbs, 'user' => $user]);
     }
     
     public function create(Request $request)

@@ -8,12 +8,15 @@ use App\Http\Controllers\Controller;
 use App\Bbs;
 use App\History;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class BbsController extends Controller
 {
-    public function add()
+    public function add(Request $request)
     {
-        return view('vague.bbs.create');
+        $user = Auth::user($request->id);
+        
+        return view('vague.bbs.create', ['user' => $user]);
     }
     
     public function create(Request $request)
@@ -31,13 +34,14 @@ class BbsController extends Controller
     
     public function index(Request $request)
     {
+        $user = Auth::user();
         $cond_lang = $request->cond_lang;
         if ($cond_lang != '') {
             $posts = Bbs::where('lang', 'LIKE', "%{$cond_lang}%")->get();
         } else {
             $posts = Bbs::all()->sortByDesc('updated_at');
         }
-        return view('vague.bbs.index', ['posts' => $posts, 'cond_lang' => $cond_lang]);
+        return view('vague.bbs.index', ['posts' => $posts, 'cond_lang' => $cond_lang, 'user' => $user]);
     }
     
     public function edit(Request $request)
@@ -68,11 +72,10 @@ class BbsController extends Controller
     
     public function delete(Request $request)
     {
-        $form = $request->all();
-        $bbs = Bbs::find($form['deleteId']);
+        $this->authorize('delete', $request);
+        $bbs = Bbs::find($request->id);
         $bbs->delete();
         
         return redirect('/');
     }
-    
 }

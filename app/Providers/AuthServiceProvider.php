@@ -19,8 +19,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
-        User::class => UserPolicy::class,
-        Post::class => PostPolicy::class,
+        //User::class => UserPolicy::class,
+        //Post::class => PostPolicy::class,
     ];
 
     /**
@@ -44,5 +44,12 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('user-higher', function ($user) {
         return ($user->role > 0 && $user->role <= 10);
         });
+        
+        //投稿者に許可
+        Gate::define('edit', 'update', 'delete', function ($user, $bbs) {
+            return $user->id == $bbs->user_id;
+        });
+        
     }
+    
 }

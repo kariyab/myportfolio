@@ -22,4 +22,9 @@ class Answer extends Model
     {
         return $this->belongsTo('App\Bbs');
     }
+    
+        public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

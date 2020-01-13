@@ -3,42 +3,41 @@
 @section('title', '回答の新規作成')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="post col-md-8 mx-auto mt-3">
-                <div class="row">
-                    <div class="question">
-                        <p class="name">名前
-                            {{ \Str::limit($bbs->name, 100) }}
-                        </p>
-                        <p class="date">
-                            {{ $bbs->updated_at->format('Y年m月d日 H時i分s秒') }}
-                        </p>
-                        <p class="lang">
-                            {{ \Str::limit($bbs->lang, 100) }}
-                        </p>
-                        <div class="body">
-                            {{ \Str::limit($bbs->body, 250) }}
-                        </div>
-                    </div>
+<div class="container">
+    <div class="row">
+        <div class="card col-md-10 mx-auto">
+            <div class="card-header">
+                <div class="name">名前
+                    {{ \Str::limit($bbs->name, 100) }}
+                </div>
+                <div class="lang">
+                    {{ \Str::limit($bbs->lang, 100) }}
+                </div>
+                <div class="date">
+                    {{ $bbs->updated_at->format('Y年m月d日 H時i分s秒') }}
                 </div>
             </div>
+            <div class="card-body">
+                {{ \Str::limit($bbs->body, 250) }}
+            </div>
         </div>
-        <hr color="#c0c0c0">
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h2>回答新規作成</h2>
-                <form action="{{ action('Vague\AnswerController@create') }}" method="post" enctype="multipart/form-data">
-                    @if (count($errors) > 0)
-                        <ul>
-                            @foreach($errors->all() as $e)
-                                <li>{{ $e }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
+    </div>
+    <hr color="#c0c0c0">
+    <div class="row">
+        <div class="col-md-10 mx-auto">
+            <h2>回答新規作成</h2>
+            <form action="{{ action('Vague\AnswerController@create') }}" method="post" enctype="multipart/form-data">
+                @if (count($errors) > 0)
+                    <ul>
+                        @foreach($errors->all() as $e)
+                            <li>{{ $e }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+                <div class="new-comment">
                     <div class="form-group row">
                         <label class="col-md-3" for="name">名前</label>
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                         </div>
                     </div>
@@ -48,36 +47,39 @@
                             <textarea class="form-control" name="answer" rows="10">{{ old('answer') }}</textarea>
                         </div>
                     </div>
+                    <input id="user_id" name="user_id" type="hidden" value="{{ $user->id }}">
                     <input id="bbs_id" name="bbs_id" type="hidden" value="{{ $bbs->id }}">
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="投稿">
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-        <hr color="#c0c0c0">
+    </div>
+    <hr color="#c0c0c0">
+    <div class="container">
         <div class="row">
-            <div class="col-md-8 mx-auto mt-3">
-                @forelse($bbs->answers as $answer)
-                    <div class="comment">
-                        <div class="row">
-                            <ul class="answer">
-                                <li><div class="answer-name">名前
-                                    {{ \Str::limit($answer->name, 50) }}
-                                </div></li>
-                                <li><div class="answer-date">
-                                    {{ $answer->created_at->format('Y.m.d H:i') }}
-                                </div></li>
-                            </ul>
-                            <div class="answer-body mt-8">
-                                {{ \Str::limit($answer->answer, 500) }}
+            <div class="col-md-12 mx-auto">
+                <div class="answers">
+                    @forelse($bbs->answers as $answer)
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="name">名前
+                                {{ \Str::limit($answer->name, 50) }}
                             </div>
+                            <div class="date">
+                                {{ $answer->created_at->format('Y.m.d H:i') }}
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            {{ \Str::limit($answer->answer, 500) }}
                         </div>
                     </div>
                 </div>
             </div>
-            @empty
-                <p>コメントはまだありません。</p>
-            @endforelse
         </div>
     </div>
+    @empty
+        <p>コメントはまだありません。</p>
+    @endforelse
+</div>
 @endsection
