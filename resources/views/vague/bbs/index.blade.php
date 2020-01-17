@@ -52,9 +52,11 @@ vague【ヴェイグ】
                         <tbody>
                             @foreach($posts as $post)
                                 <tr>
-                                    <td><div class="date">
+                                    <td>
+                                        <div class="date">
                                         {{ $post->updated_at->format('Y年m月d日 H時i分s秒') }}
-                                    </td></div>
+                                        </div>
+                                    </td>
                                     <td>{{ \Str::limit($post->name, 100) }}</td>
                                     <td>{{ \Str::limit($post->lang, 100) }}</td>
                                     <td>{{ \Str::limit($post->body, 250) }}</td>
@@ -63,21 +65,30 @@ vague【ヴェイグ】
                                         <span class="badge badge-primary">
                                             コメント {{ $post->answers->count() }}件
                                         </span>
-                                    @endif
+                                        @endif
                                     </td>
-
-                                    <td><div class="col-md-4">
+                                    
+                                    <td>
+                                        <div class="col-md-4">
                                             <a href="{{ action('Vague\AnswerController@create', ['id' => $post->id]) }}" class="btn btn-primary">詳細</a>
-                                    </td></div>
-                                    <td><div>
-                                            <a href="{{ action('Vague\BbsController@edit', ['id' => $post->id]) }}" class="btn btn-primary">編集</a>
-                                    </td></div>
-                                    <td><form action="{{ action('Vague\BbsController@delete') }}" id="form_{{ $post->id }}" method="post">
+                                        </div>
+                                    </td>
+                                    @if (Auth::check()) {
+                                        @if ($post->user_id == $user->id)
+                                    }
+                                    <td>
+                                        <a href="{{ action('Vague\BbsController@edit', ['id' => $post->id]) }}" class="btn btn-primary">編集</a>
+                                    </td>
+                                    <td>
+                                        <form action="{{ action('Vague\BbsController@delete') }}" id="form_{{ $post->id }}" method="post">
                                             {{ csrf_field() }}
                                             {{ method_field('post') }}
                                             <input type="hidden" name="deleteId" value="{{ $post->id }}">
-                                            <a href="#" data-id="{{ $post->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a>
-                                    </td></form>
+                                            <a href="#" data-id="{{ $post->id }}" class="btn btn-danger" onclick="deletePost(this);">削除</a>
+                                        </form>
+                                    </td>
+                                    @endif
+                                    @endif
                                 </tr>
                             @endforeach
                         </tbody>

@@ -74,12 +74,12 @@
                             {{ \Str::limit($answer->answer, 500) }}
                         </div>
                     </div>
+                    @empty
+                    <p>コメントはまだありません。</p>
+                    @endforelse
                 </div>
             </div>
         </div>
     </div>
-    @empty
-        <p>コメントはまだありません。</p>
-    @endforelse
 </div>
 @endsection

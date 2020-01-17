@@ -1,0 +1,58 @@
+body {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #F5F5F5;
+  color: #000;
+}
+
+.navbar-laravel {
+  background-color: #00F;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+  color: #fff !important;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+.table-dark {
+  color: #fff;
+}
+
+.list-group-item {
+  border-color: #fff;
+  background-color: #0FF;
+}
+
+.login-box {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.login-header {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.login-body {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.card-header {
+  display: -webkit-box;
+  display: flex;
+}
+
+.answer {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.date {
+  margin-left: 10px;
+}
+
