@@ -73,9 +73,8 @@ vague【ヴェイグ】
                                             <a href="{{ action('Vague\AnswerController@create', ['id' => $post->id]) }}" class="btn btn-primary">詳細</a>
                                         </div>
                                     </td>
-                                    @if (Auth::check()) {
-                                        @if ($post->user_id == $user->id)
-                                    }
+                                    @if (Auth::check()) 
+                                    @if ($post->user_id == $user->id)
                                     <td>
                                         <a href="{{ action('Vague\BbsController@edit', ['id' => $post->id]) }}" class="btn btn-primary">編集</a>
                                     </td>
