@@ -74,7 +74,11 @@ class AnswerController extends Controller
     
     public function delete(Request $request)
     {
-        $answer = Answer::find($request->id);
+        $user = Auth::user();
+        $answer = Answer::find($request->deleteId);
+        if($user->id != $answer->user_id){
+            return abort(403);
+        }
         $answer->delete();
         
         return redirect('/');

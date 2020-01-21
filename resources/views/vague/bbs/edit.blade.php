@@ -17,7 +17,8 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="name">名前</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="name" value="{{ $bbs_form->name }}">
+                            <span class="user-name"> {{ Auth::user()->name }} </span>
+                            <input type="hidden" name="name" value="{{ $user->name }}">
                         </div>
                     </div>
                     <div class="form-group row">

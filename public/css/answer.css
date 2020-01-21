@@ -44,6 +44,11 @@ body {
   display: flex;
 }
 
+.name-name {
+  display: -webkit-box;
+  display: flex;
+}
+
 .answer {
   display: -webkit-box;
   display: flex;

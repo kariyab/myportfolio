@@ -22,7 +22,7 @@ class CreateAnswersTable extends Migration
             
             $table->timestamps();
             
-            $table->foreign('bbs_id')->references('id')->on('bbs');
+            $table->foreign('bbs_id')->references('id')->on('bbs')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
         });

@@ -23,7 +23,7 @@ vague【ヴェイグ】
             <div class="col-md-8">
                 <form action="{{ action('Vague\BbsController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">言語</label>
+                        <label class="col-md-2">言語検索</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_lang" value="{{ $cond_lang }}">
                         </div>
@@ -73,7 +73,6 @@ vague【ヴェイグ】
                                             <a href="{{ action('Vague\AnswerController@create', ['id' => $post->id]) }}" class="btn btn-primary">詳細</a>
                                         </div>
                                     </td>
-
                                     @if(Auth::check() && $post->user_id == $user->id)
                                     <td>
                                         <a href="{{ action('Vague\BbsController@edit', ['id' => $post->id]) }}" class="btn btn-primary">編集</a>
@@ -86,7 +85,6 @@ vague【ヴェイグ】
                                             <a href="#" data-id="{{ $post->id }}" class="btn btn-danger" onclick="deletePost(this);">削除</a>
                                         </form>
                                     </td>
-                                    
                                     @endif
                                 </tr>
                             @endforeach

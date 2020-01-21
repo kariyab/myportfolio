@@ -46,11 +46,12 @@ class BbsController extends Controller
     
     public function edit(Request $request)
     {
+        $user = Auth::user();
         $bbs = Bbs::find($request->id);
         if (empty($bbs)) {
             abort(404);
         }
-        return view('vague.bbs.edit', ['bbs_form' => $bbs]);
+        return view('vague.bbs.edit', ['bbs_form' => $bbs, 'user' => $user]);
     }
     
     public function update(Request $request)
@@ -72,8 +73,11 @@ class BbsController extends Controller
     
     public function delete(Request $request)
     {
-        $this->authorize('delete', $request);
-        $bbs = Bbs::find($request->id);
+        $user = Auth::user();
+        $bbs = Bbs::find($request->deleteId);
+        if($user->id != $bbs->user_id){
+            return abort(403);
+        }
         $bbs->delete();
         
         return redirect('/');
