@@ -40,7 +40,7 @@
                 <div class="new-comment">
                     <div class="form-group row">
                         <div class="name-name">
-                            <label class="col-md-5" for="name">名前</label>
+                            <label class="col-md-auto" for="name">名前</label>
                             <div class="col-md-10">
                                 <span class="user-name"> {{ Auth::user()->name }} </span>
                                 <input type="hidden" name="name" value="{{ $user->name }}">
