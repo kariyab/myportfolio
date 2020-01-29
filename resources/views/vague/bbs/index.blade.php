@@ -1,12 +1,12 @@
 @extends('layouts.vague')
 
 @section('title')
-vague【ヴェイグ】
+vague【初心者向けQ＆A】
 @endsection
 
 @section('content')
 <div class="title-area">
-    <h1 class="logo">ヴェイグ</h1>
+    <h1 class="logo">vague</h1>
     <p class="text-sub">
         プログラミング初心者向けQ&A<br>
         理解するためのきっかけを見つけよう。<br>
